@@ -71,7 +71,7 @@ export default function Hero() {
               0428592610
             </a>
             <a
-              href="mailto:info@gotchaplumbing.com.au"
+              href="mailto:gotchaplumbingandgas@gmail.com"
               className="btn btn--glass"
               id="hero-email-btn"
             >

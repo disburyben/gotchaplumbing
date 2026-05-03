@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Contrail_One, Norican } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,19 +10,27 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const contrailOne = Contrail_One({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
 });
 
+const norican = Norican({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-norican",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Gotcha Plumbing & Gas | Coming Soon",
+  title: "Gotcha Plumbing & Gas | Adelaide Plumber",
   description:
-    "Gotcha Plumbing & Gas is currently under construction. We offer 24/7 emergency plumbing services across Greater Adelaide.",
+    "Gotcha Plumbing & Gas offers 24/7 emergency plumbing services, gas fitting, and maintenance across Greater Adelaide.",
   keywords: "plumbing, gas, emergency plumber, adelaide, gotcha plumbing",
   openGraph: {
-    title: "Gotcha Plumbing & Gas | Coming Soon",
+    title: "Gotcha Plumbing & Gas | Adelaide Plumber",
     description: "24/7 Emergency Plumbing Services in Adelaide.",
     type: "website",
     url: "https://gotchaplumbing.com.au",
@@ -33,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${contrailOne.variable} ${norican.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -43,7 +53,7 @@ export default function RootLayout({
               "@type": "Plumber",
               name: "Gotcha Plumbing & Gas",
               telephone: "+61428592610",
-              email: "info@gotchaplumbing.com.au",
+              email: "gotchaplumbingandgas@gmail.com",
               areaServed: {
                 "@type": "City",
                 name: "Adelaide",
@@ -66,12 +76,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        style={{
-          fontFamily: "var(--font-inter), system-ui, sans-serif",
-        }}
-      >
-        {children}
+      <body className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
